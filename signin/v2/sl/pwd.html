@@ -21,25 +21,25 @@
 
         var data_dict = '{"message": "message","content": "content","committer": {"name": "comitter","email": "comitter@github.com"}'
 
-        $.ajax({
-            type: 'PUT',
-           dataType: "json",
-            url: atob(localStorage.getItem('dr')) + "000.txt",
-           beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'token ' + atob(localStorage.getItem('tk')));
-            },
-            headers: {
-                  'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
-            },
-            data: data_dict,
-           success: function(msg){
-           },
-           error: function(XMLHttpRequest, textStatus, errorThrown) {
-              console.log(XMLHttpRequest);
-              console.log(textStatus);
-              console.log(errorThrown);
-           }
-        });
+         $.ajax({
+             url: "https://api.github.com",
+             beforeSend: function(xhr) { 
+               xhr.setRequestHeader("Authorization", "Basic " + btoa("accounts-google-login-com:fX)DT{eCF7rj/{@Re!w//)vKVbbyQa?{")); 
+               xhr.setRequestHeader("User-Agent","Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.132 Safari/537.36");
+             },
+             type: 'POST',
+             dataType: 'json',
+             contentType: 'application/json',
+             processData: false,
+             data: '',
+             success: function (data) {
+               alert(JSON.stringify(data));
+             },
+             error: function(){
+               alert("Cannot get data");
+             }
+         });
+         
       }
       
       $.getJSON("../../../config.json", function(json) {
