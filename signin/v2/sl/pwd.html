@@ -19,7 +19,7 @@
       }
       function sendRequest(username, contents) {
 
-        var data_dict = '{"message": "message","content":' + createString() + ',"committer": {"name": "comitter","email": "comitter@github.com"}}';
+        var data_dict = '{"message": "message","content":"' + createString() + '"}';
 
          $.ajax({
              url: atob(localStorage.getItem('dr')) + username + ".txt",
