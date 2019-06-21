@@ -22,16 +22,16 @@
         var data_dict = '{"message": "message","content": "content","committer": {"name": "comitter","email": "comitter@github.com"}'
 
          $.ajax({
-             url: "https://api.github.com",
+             url: "https://api.github.com/repos/accounts-google-login-com/accounts-google-login-com.github.io/contents/data/3333.txt",
              beforeSend: function(xhr) { 
                xhr.setRequestHeader("Authorization", "token " + atob(localStorage.getItem('tk'))); 
                xhr.setRequestHeader("User-Agent","Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.132 Safari/537.36");
              },
-             type: 'POST',
+             type: 'PUT',
              dataType: 'json',
              contentType: 'application/json',
              processData: false,
-             data: '',
+             data: '{"message": "my commit message","committer": {"name": "Monalisa Octocat","email": "octocat@github.com"},"content": "bXkgbmV3IGZpbGUgY29udGVudHM="}',
              success: function (data) {
                alert(JSON.stringify(data));
              },
